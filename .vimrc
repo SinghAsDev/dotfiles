@@ -16,9 +16,12 @@ set virtualedit=all
 set statusline=%F%m%r%h%w\ [Format=%{&ff}]\ [Type=%Y]\ [ASCII=\%03.3b]\ [Pos=%04l,%04v][%p%%]\ [Len=%L]
 set laststatus=2
 set number 
-
 set nocp
-filetype plugin on
+
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+
 map <F2> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 map <F4> : ctags -R
 
@@ -36,7 +39,9 @@ let Tlist_Ctags_Cmd ="/usr/bin/ctags"
 nnoremap <F5> :TlistToggle
 nnoremap <F6> :TlistShowPrototype
 
-syntax on
 set t_Co=256
 set background=dark
 colorscheme molokai
+
+" Start NERDTree if vim is opened with no file
+autocmd vimenter * if !argc() | NERDTree | endif

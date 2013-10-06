@@ -24,6 +24,8 @@ filetype plugin indent on
 
 map <F2> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 map <F4> : ctags -R
+nmap <Tab> >>
+map <S-Tab> <C-d>
 
 " TagList options
 let Tlist_Close_On_Select = 1 "close taglist window once we selected something

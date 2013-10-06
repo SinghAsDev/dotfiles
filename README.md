@@ -12,3 +12,4 @@ ln -sb dotfiles/.bashrc .
 ln -sb dotfiles/.bashrc_custom .
 mv .vim .vim~
 ln -s dotfiles/.vim .
+ln -s dotfiles/.tmux.conf .

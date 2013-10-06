@@ -217,6 +217,9 @@ if [ -s ~/.nvm/nvm.sh ]; then
     nvm use v0.10.12 &> /dev/null # silence nvm use; needed for rsync
 fi
 
+# 2.8) Set up tmux to use 256 colors
+alias tmux="tmux -2"
+
 ## ------------------------------
 ## -- 3) User-customized code  --
 ## ------------------------------

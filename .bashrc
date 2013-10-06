@@ -187,6 +187,8 @@ alias md='mkdir'
 alias cl='clear'
 alias du='du -ch --max-depth=1'
 alias treeacl='tree -A -C -L 2'
+USERNAME=`whoami`
+alias zz="ps -u $USERNAME"
 
 # 2.3) Text and editor commands
 export EDITOR='vim'

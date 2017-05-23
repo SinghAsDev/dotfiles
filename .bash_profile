@@ -62,4 +62,30 @@ export PATH=$HOME/bin:$PATH
 export PATH=/usr/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
-export PATH=/usr/local/heroku/bin:$PATH # Heroku: https://toolbelt.heroku.com/standalone
+export PATH=$PATH:~/install/arcanist/bin
+
+function print_symlink {
+    wd="$(pwd)"
+    linkdir="$(readlink -n $wd)";
+    if readlink -n $wd >/dev/null; then
+echo " -> $linkdir ";
+    fi
+}
+ 
+function parse_git_branch {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+  echo " ("${ref#refs/heads/}") "
+}
+ 
+alias ls='ls -F'
+alias rm='rm -i'
+ 
+export PS1='[\T]\[\e[0;32m\] \w\[\e[0;36m\]$(print_symlink)\[\e[0;31m\]$(parse_git_branch)\[\e[0m\] $ '
+
+# Init jenv
+if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+
+# Set up bash completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi

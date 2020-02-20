@@ -43,7 +43,7 @@ nnoremap <F6> :TlistShowPrototype
 
 set t_Co=256
 set background=dark
-colorscheme molokai
+colorscheme monokai
 
 " Start NERDTree if vim is opened with no file
 autocmd vimenter * if !argc() | NERDTree | endif
